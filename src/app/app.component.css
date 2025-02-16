@@ -1,0 +1,39 @@
+.app-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  div {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin: 5px 0;
+  }
+  
+  input, button {
+    margin: 5px;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  ul li {
+    margin-bottom: 10px;
+  }
+  
