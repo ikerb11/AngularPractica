@@ -24,14 +24,10 @@
     <button (click)="calculateIMC()">Calcular IMC</button>
   </div>
 
-  <!-- Listado de resultados -->
-  <div *ngIf="results.length > 0">
-    <h3>Resultados de IMC</h3>
-    <ul>
-      <li *ngFor="let result of results">
-        <strong>{{ result.name }}:</strong> {{ result.imc.toFixed(2) }} - {{ result.message }}
-      </li>
-    </ul>
+  <!-- Mensaje de IMC -->
+  <div *ngIf="imcMessage">
+    <p>{{ imcMessage }}</p>
   </div>
+
 </div>
 
