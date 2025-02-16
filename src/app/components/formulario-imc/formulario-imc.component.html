@@ -1,0 +1,26 @@
+<!-- formulario-imc.component.html -->
+<div class="container">
+    <h2>Calculadora de IMC</h2>
+  
+    <label>Nombre:</label>
+    <input type="text" [(ngModel)]="nombre" placeholder="Ingresa tu nombre">
+  
+    <label>Sexo:</label>
+    <div>
+      <input type="radio" name="sexo" [(ngModel)]="sexo" value="hombre"> Hombre
+      <input type="radio" name="sexo" [(ngModel)]="sexo" value="mujer"> Mujer
+    </div>
+  
+    <label>Estatura (m):</label>
+    <input type="number" [(ngModel)]="altura" step="0.01" min="0" placeholder="Ejemplo: 1.70">
+  
+    <label>Peso (kg):</label>
+    <input type="number" [(ngModel)]="peso" step="0.1" min="0" placeholder="Ejemplo: 70">
+  
+    <button (click)="calcularIMC()">Calcular IMC</button>
+  
+    <div *ngIf="resultado">
+      <h3>Resultado: {{ resultado }}</h3>
+    </div>
+  </div>
+  
