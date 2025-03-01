@@ -1,6 +1,14 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+interface ImcResultado {
+  nombre: string;
+  sexo: string;
+  imc: string;
+  mensaje: string;
+  esPesoIdeal: boolean;
+}
+
 @Component({
   selector: 'app-formulario-imc',
   standalone: true,
@@ -14,21 +22,21 @@ export class FormularioImcComponent {
   peso: number = 70;
   altura: number = 1.75;
 
-  @Output() imcCalculado = new EventEmitter<any>();
+  @Output() imcCalculado = new EventEmitter<ImcResultado>();
 
-  setSexo(valor: string) {
+  setSexo(valor: string): void {
     this.sexo = valor;
   }
 
-  modificarPeso(valor: number) {
+  modificarPeso(valor: number): void {
     this.peso += valor;
   }
 
-  modificarAltura(valor: number) {
+  modificarAltura(valor: number): void {
     this.altura += valor;
   }
 
-  calcularIMC() {
+  calcularIMC(): void {
     if (this.nombre && this.peso && this.altura) {
       const imc = this.peso / (this.altura * this.altura);
       let mensaje = '';

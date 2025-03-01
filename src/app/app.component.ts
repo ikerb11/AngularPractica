@@ -2,6 +2,14 @@ import { Component } from '@angular/core';
 import { FormularioImcComponent } from './components/formulario-imc/formulario-imc.component';
 import { ResultadoImcComponent } from './resultado-imc/resultado-imc.component';
 
+interface ImcResultado {
+  nombre: string;
+  sexo: string;
+  imc: string;
+  mensaje: string;
+  esPesoIdeal: boolean;
+}
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -10,9 +18,9 @@ import { ResultadoImcComponent } from './resultado-imc/resultado-imc.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  resultadoIMC: any = null;
+  resultadoIMC: ImcResultado | null = null;
 
-  actualizarResultado(imcData: any) {
+  actualizarResultado(imcData: ImcResultado): void {
     this.resultadoIMC = imcData;
   }
 }
