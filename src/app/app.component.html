@@ -1,33 +1,5 @@
 <div class="app-container">
   <h2>Calculadora de Masa Corporal</h2>
-
-  <!-- Formulario para ingresar los datos -->
-  <div>
-    <label for="name">Nombre:</label>
-    <input type="text" id="name" [(ngModel)]="name" placeholder="Ingresa tu nombre" />
-
-    <label>Sexo:</label>
-    <input type="radio" id="male" [(ngModel)]="sex" value="Male" /> Masculino
-    <input type="radio" id="female" [(ngModel)]="sex" value="Female" /> Femenino
-
-    <label>Peso:</label>
-    <button (click)="adjustWeight(-1)">-</button>
-    <span>{{ weight }} kg</span>
-    <button (click)="adjustWeight(1)">+</button>
-
-    <label>Altura:</label>
-    <button (click)="adjustHeight(-0.01)">-</button>
-    <span>{{ height }} m</span>
-    <button (click)="adjustHeight(0.01)">+</button>
-
-    <button (click)="clearForm()">Borrar</button>
-    <button (click)="calculateIMC()">Calcular IMC</button>
-  </div>
-
-  <!-- Mensaje de IMC -->
-  <div *ngIf="imcMessage">
-    <p>{{ imcMessage }}</p>
-  </div>
-
+  <app-formulario-imc (imcCalculado)="actualizarResultado($event)"></app-formulario-imc>
+  <app-resultado-imc [resultado]="resultadoIMC"></app-resultado-imc>
 </div>
-
