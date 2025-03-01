@@ -3,4 +3,5 @@
     <p>Nombre: {{ resultado.nombre }}</p>
     <p>Sexo: {{ resultado.sexo }}</p>
     <p>IMC: {{ resultado.imc }}</p>
+    <p [ngStyle]="{ 'color': resultado.esPesoIdeal ? 'green' : 'red' }">{{ resultado.mensaje }}</p>
   </div>

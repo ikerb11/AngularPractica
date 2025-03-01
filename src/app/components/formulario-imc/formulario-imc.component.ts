@@ -10,9 +10,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class FormularioImcComponent {
   nombre: string = '';
-  sexo: string = 'M';
+  sexo: string = '';
   peso: number = 70;
-  altura: number = 170;
+  altura: number = 1.75;
 
   @Output() imcCalculado = new EventEmitter<any>();
 
@@ -29,8 +29,17 @@ export class FormularioImcComponent {
   }
 
   calcularIMC() {
-    const alturaMetros = this.altura / 100;
-    const imc = this.peso / (alturaMetros * alturaMetros);
-    this.imcCalculado.emit({ nombre: this.nombre, sexo: this.sexo, imc: imc.toFixed(2) });
+    if (this.nombre && this.peso && this.altura) {
+      const imc = this.peso / (this.altura * this.altura);
+      let mensaje = '';
+      let esPesoIdeal = false;
+      if (imc >= 18.5 && imc <= 24.9) {
+        mensaje = 'Estás en tu peso ideal';
+        esPesoIdeal = true;
+      } else {
+        mensaje = 'No estás en tu peso ideal';
+      }
+      this.imcCalculado.emit({ nombre: this.nombre, sexo: this.sexo, imc: imc.toFixed(2), mensaje, esPesoIdeal });
+    }
   }
 }
